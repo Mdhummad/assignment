@@ -1,5 +1,4 @@
 """Run: python analyze.py web.log worker.log"""
-import re
 import sys
 from collections import Counter
 
