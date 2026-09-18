@@ -17,13 +17,13 @@ first = None
 with open(sys.argv[2]) as lines:
     for line in lines:
         if '[worker]' not in line:
-            continue
+     
         match = re.search(r'request_id=(\w+)', line)
         if not match or match.group(1) not in web:
-            continue
+          
         method, path, status, user, timestamp = web[match.group(1)]
         if method != 'POST' or path != '/checkout':
-            continue
+           
         period = 'after' if timestamp >= '2026-07-02 14:32:40' else 'before'
         parity = 'odd' if user % 2 else 'even'
         outcome = 'failed' if 'ERROR [worker]' in line else 'completed'
